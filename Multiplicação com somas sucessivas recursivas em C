@@ -1,0 +1,34 @@
+/* Multiplicação com somas sucessivas recursivas*/
+
+#include <stdio.h>
+#include <conio.h>
+
+int soma(int a, int b);
+
+int main(void){
+    int a, b, result;
+
+    printf("\nDigite um valor inteiro para o 1o fator: \n");
+    scanf("%i", &a);
+    printf("\nDigite um valor inteiro para o 2o fator: \n");
+    scanf("%i", &b);
+     printf("\n\n");
+
+    for (int i = 1 ; i <= a; i++){
+        if (i < a){
+            printf("%i + ", b);
+        }else{
+            printf("%i", b);
+        }
+    }
+	result = soma(a, b);
+	printf(" = %i", result);
+}
+
+int soma(int a, int b) {
+    if (a > 0) {
+        return b + soma(a - 1 , b);
+	    } else {
+        return 0;
+    }
+}
